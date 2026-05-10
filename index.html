@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SELECT Project v4 - Delivery Management</title>
+<link href="https://fonts.loli.net/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f7fafc;min-height:100vh}
+.hdr{background:linear-gradient(135deg,#1a365d,#2d5a87);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+.hdr-l{display:flex;align-items:center;gap:14px}
+.hdr-l img{height:52px;border-radius:4px;background:white;padding:3px}
+.hdr-t{color:white}
+.hdr-t h1{font-size:22px;font-weight:800;letter-spacing:.5px}
+.hdr-t p{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
+.hdr-t .sub{font-size:12px;color:#f6ad55;font-weight:600;margin-top:3px}
+.hdr-r{display:flex;align-items:center;gap:12px}
+.hdr-r img{height:44px;border-radius:4px;background:white;padding:2px}
+.hdr-rt{color:white;text-align:right}
+.hdr-rt .lb{font-size:10px;color:rgba(255,255,255,.6)}
+.hdr-rt .vl{font-size:11px;font-weight:600}
+.hero{background:linear-gradient(135deg,#1a365d,#234e7a);padding:36px;text-align:center;color:white}
+.hero h2{font-size:30px;font-weight:800;margin-bottom:8px}
+.hero p{font-size:14px;color:rgba(255,255,255,.8);max-width:750px;margin:0 auto;line-height:1.6}
+.stats{display:flex;justify-content:center;gap:28px;padding:28px;background:white;border-bottom:1px solid #e2e8f0;flex-wrap:wrap}
+.stat{text-align:center;min-width:130px}
+.stat .v{font-size:34px;font-weight:800;color:#1a365d}
+.stat .l{font-size:11px;color:#718096;text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+.container{max-width:1400px;margin:0 auto;padding:28px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:22px}
+.card{background:white;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.07);overflow:hidden;transition:all .3s;border:1px solid #e2e8f0}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.14)}
+.ch{padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.ch.th{background:linear-gradient(135deg,#E74C3C,#c0392b)}
+.ch.mi{background:linear-gradient(135deg,#3498DB,#2980b9)}
+.ch.tm{background:linear-gradient(135deg,#2ECC71,#27ae60)}
+.ch.ma{background:linear-gradient(135deg,#F39C12,#e67e22)}
+.ch.sa{background:linear-gradient(135deg,#9B59B6,#8e44ad)}
+.ch h3{color:white;font-size:20px;font-weight:700}
+.ch .bg{background:rgba(255,255,255,.2);color:white;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600}
+.cb{padding:18px 22px}
+.cstats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+.cst{background:#f7fafc;padding:10px;border-radius:7px;text-align:center}
+.cst .cv{font-size:20px;font-weight:700;color:#2d3748}
+.cst .cl{font-size:10px;color:#718096;margin-top:2px}
+.rp{margin-bottom:14px}
+.rpt{font-size:11px;font-weight:600;color:#4a5568;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.rps{display:flex;flex-wrap:wrap;gap:5px}
+.rpi{background:#edf2f7;padding:4px 10px;border-radius:5px;font-size:11px;color:#4a5568;border:1px solid #e2e8f0}
+.rpi b{color:#2d3748}
+.ft{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.ftg{font-size:10px;padding:3px 8px;border-radius:10px;background:#f0fff4;color:#276749;border:1px solid #c6f6d5;font-weight:500}
+.ob{display:block;width:100%;padding:12px;background:linear-gradient(135deg,#1a365d,#2d5a87);color:white;text-align:center;text-decoration:none;border-radius:7px;font-weight:600;font-size:13px;transition:all .3s}
+.ob:hover{background:linear-gradient(135deg,#2d5a87,#1a365d);transform:translateY(-1px)}
+.ib{background:white;border-radius:11px;padding:22px;margin:18px auto 28px;max-width:950px;border:1px solid #e2e8f0;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+.ib h3{color:#1a365d;font-size:17px;margin-bottom:10px}
+.ib ul{color:#4a5568;font-size:13px;line-height:1.7;padding-left:20px}
+.ib li{margin-bottom:5px}
+.ftr{text-align:center;padding:28px;color:#a0aec0;font-size:12px;border-top:1px solid #e2e8f0;margin-top:28px}
+@media(max-width:768px){.grid{grid-template-columns:1fr}.hdr{flex-direction:column;gap:14px;text-align:center}.stats{gap:14px}}
+</style>
+<script src="https://www.kimi.com/sdk-seed.js" defer=""></script></head>
+<body>
+<div class="hdr">
+    <div class="hdr-l">
+        <img src="gos_logo.png" alt="GoS"/>
+        <div class="hdr-t">
+            <h1>SELECT PROJECT</h1>
+            <p>School Education &amp; Literacy Department, Government of Sindh</p>
+            <div class="sub">v4 Delivery Management System</div>
+        </div>
+    </div>
+    <div class="hdr-r">
+        <div class="hdr-rt"><div class="lb">Funded By</div><div class="vl">World Bank Group</div></div>
+        <img src="wb_logo.png" alt="WB"/>
+    </div>
+</div>
+<div class="hero">
+    <h2>Board Delivery Route Planner v4</h2>
+    <p>Search any school, build custom routes, track deliveries with photo proof &amp; board types.<br/>Real road routes via OSRM. All data saves locally in your browser.</p>
+</div>
+<div class="stats">
+    <div class="stat"><div class="v">176</div><div class="l">Total Schools</div></div>
+    <div class="stat"><div class="v">38</div><div class="l">Routes</div></div>
+    <div class="stat"><div class="v">1570.0</div><div class="l">Total Road km</div></div>
+    <div class="stat"><div class="v">5</div><div class="l">Districts</div></div>
+</div>
+<div class="container">
+    <div class="ib">
+        <h3>🚀 v4 Features</h3>
+        <ul>
+            <li><b>Search Bar:</b> Type school name, SMIS ID, tehsil or UC to instantly find and fly to it</li>
+            <li><b>Custom Route Builder:</b> Click &#34;+ Custom&#34; on any school to build your own route. Reorder, save, get road directions</li>
+            <li><b>Delivered Schools View:</b> Toggle to see only completed deliveries with board types and photo status</li>
+            <li><b>Board Tracking:</b> Record 22 SES boards, 7 IEC boards, or Both at each school</li>
+            <li><b>Photo Upload:</b> Take a picture of the HM receiving the boards - auto-saves locally</li>
+            <li><b>Export CSV:</b> Download delivery reports anytime for official records</li>
+        </ul>
+    </div>
+    <div class="grid">
+<div class="card"><div class="ch th"><h3>Thatta</h3><span class="bg">11 Routes</span></div><div class="cb"><div class="cstats"><div class="cst"><div class="cv">37</div><div class="cl">Schools</div></div><div class="cst"><div class="cv">~402.0km</div><div class="cl">Total Road</div></div><div class="cst"><div class="cv">~37.0km</div><div class="cl">Avg/Route</div></div></div><div class="rp"><div class="rpt">Route Breakdown</div><div class="rps"><span class="rpi"><b>R1</b>: 3sch | 37.3km</span><span class="rpi"><b>R2</b>: 3sch | 26.2km</span><span class="rpi"><b>R3</b>: 4sch | 32.1km</span><span class="rpi"><b>R4</b>: 3sch | 8.7km</span><span class="rpi"><b>R5</b>: 9sch | 85.5km</span><span class="rpi"><b>R6</b>: 6sch | 154.7km</span><span class="rpi"><b>R7</b>: 1sch | 0km</span><span class="rpi"><b>R8</b>: 2sch | 15.3km</span><span class="rpi"><b>R9</b>: 2sch | 17.7km</span><span class="rpi"><b>R10</b>: 3sch | 24.7km</span><span class="rpi"><b>R11</b>: 1sch | 0km</span></div></div><div class="ft"><span class="ftg">🔍 Search</span><span class="ftg">✎ Custom Routes</span><span class="ftg">📷 Photo Upload</span><span class="ftg">✅ Board Tracking</span><span class="ftg">✓ Delivered View</span></div><a href="thatta_v4.html" class="ob">Open Interactive Map ➜</a></div></div><div class="card"><div class="ch mi"><h3>Mirpurkhas</h3><span class="bg">7 Routes</span></div><div class="cb"><div class="cstats"><div class="cst"><div class="cv">42</div><div class="cl">Schools</div></div><div class="cst"><div class="cv">~463.0km</div><div class="cl">Total Road</div></div><div class="cst"><div class="cv">~66.0km</div><div class="cl">Avg/Route</div></div></div><div class="rp"><div class="rpt">Route Breakdown</div><div class="rps"><span class="rpi"><b>R1</b>: 5sch | 35.1km</span><span class="rpi"><b>R2</b>: 8sch | 103.7km</span><span class="rpi"><b>R3</b>: 3sch | 17.8km</span><span class="rpi"><b>R4</b>: 7sch | 64.4km</span><span class="rpi"><b>R5</b>: 3sch | 42.4km</span><span class="rpi"><b>R6</b>: 9sch | 138.1km</span><span class="rpi"><b>R7</b>: 7sch | 61.5km</span></div></div><div class="ft"><span class="ftg">🔍 Search</span><span class="ftg">✎ Custom Routes</span><span class="ftg">📷 Photo Upload</span><span class="ftg">✅ Board Tracking</span><span class="ftg">✓ Delivered View</span></div><a href="mirpurkhas_v4.html" class="ob">Open Interactive Map ➜</a></div></div><div class="card"><div class="ch tm"><h3>Tando Muhammad Khan</h3><span class="bg">7 Routes</span></div><div class="cb"><div class="cstats"><div class="cst"><div class="cv">40</div><div class="cl">Schools</div></div><div class="cst"><div class="cv">~139.0km</div><div class="cl">Total Road</div></div><div class="cst"><div class="cv">~20.0km</div><div class="cl">Avg/Route</div></div></div><div class="rp"><div class="rpt">Route Breakdown</div><div class="rps"><span class="rpi"><b>R1</b>: 12sch | 67.7km</span><span class="rpi"><b>R2</b>: 8sch | 29.8km</span><span class="rpi"><b>R3</b>: 8sch | 33.8km</span><span class="rpi"><b>R4</b>: 4sch | 0.0km</span><span class="rpi"><b>R5</b>: 4sch | 7.5km</span><span class="rpi"><b>R6</b>: 2sch | 0.0km</span><span class="rpi"><b>R7</b>: 2sch | 0.0km</span></div></div><div class="ft"><span class="ftg">🔍 Search</span><span class="ftg">✎ Custom Routes</span><span class="ftg">📷 Photo Upload</span><span class="ftg">✅ Board Tracking</span><span class="ftg">✓ Delivered View</span></div><a href="tando_muhammad_khan_v4.html" class="ob">Open Interactive Map ➜</a></div></div><div class="card"><div class="ch ma"><h3>Matiari</h3><span class="bg">3 Routes</span></div><div class="cb"><div class="cstats"><div class="cst"><div class="cv">26</div><div class="cl">Schools</div></div><div class="cst"><div class="cv">~202.0km</div><div class="cl">Total Road</div></div><div class="cst"><div class="cv">~67.0km</div><div class="cl">Avg/Route</div></div></div><div class="rp"><div class="rpt">Route Breakdown</div><div class="rps"><span class="rpi"><b>R1</b>: 20sch | 154.0km</span><span class="rpi"><b>R2</b>: 3sch | 26.3km</span><span class="rpi"><b>R3</b>: 3sch | 22.1km</span></div></div><div class="ft"><span class="ftg">🔍 Search</span><span class="ftg">✎ Custom Routes</span><span class="ftg">📷 Photo Upload</span><span class="ftg">✅ Board Tracking</span><span class="ftg">✓ Delivered View</span></div><a href="matiari_v4.html" class="ob">Open Interactive Map ➜</a></div></div><div class="card"><div class="ch sa"><h3>Sanghar</h3><span class="bg">10 Routes</span></div><div class="cb"><div class="cstats"><div class="cst"><div class="cv">31</div><div class="cl">Schools</div></div><div class="cst"><div class="cv">~364.0km</div><div class="cl">Total Road</div></div><div class="cst"><div class="cv">~36.0km</div><div class="cl">Avg/Route</div></div></div><div class="rp"><div class="rpt">Route Breakdown</div><div class="rps"><span class="rpi"><b>R1</b>: 4sch | 30.6km</span><span class="rpi"><b>R2</b>: 5sch | 79.1km</span><span class="rpi"><b>R3</b>: 8sch | 91.6km</span><span class="rpi"><b>R4</b>: 2sch | 6.3km</span><span class="rpi"><b>R5</b>: 4sch | 23.6km</span><span class="rpi"><b>R6</b>: 2sch | 101.5km</span><span class="rpi"><b>R7</b>: 1sch | 0km</span><span class="rpi"><b>R8</b>: 3sch | 31.5km</span><span class="rpi"><b>R9</b>: 1sch | 0km</span><span class="rpi"><b>R10</b>: 1sch | 0km</span></div></div><div class="ft"><span class="ftg">🔍 Search</span><span class="ftg">✎ Custom Routes</span><span class="ftg">📷 Photo Upload</span><span class="ftg">✅ Board Tracking</span><span class="ftg">✓ Delivered View</span></div><a href="sanghar_v4.html" class="ob">Open Interactive Map ➜</a></div></div>
+    </div>
+</div>
+<div class="ftr">
+    <p>SELECT Project • School Education &amp; Literacy Department, Government of Sindh • World Bank Group</p>
+    <p style="margin-top:4px;">v4 - Search, Custom Routes, Photo Upload, Board Tracking, Real Road Routes • May 2026</p>
+</div>
+
+</body></html>
